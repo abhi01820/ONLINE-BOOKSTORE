@@ -3,6 +3,8 @@ import axios from "axios";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
 
+const BASE_URL=import.meta.env.MODE==="development" ? "http://localhost:1000/api/v1":"/api/v1";
+
 const UserOrderHistory = () => {
   const [orderHistory, setOrderHistory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +18,7 @@ const UserOrderHistory = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:1000/api/v1/get-order-history",
+          `${BASE_URL}/get-order-history`,
           { headers }
         );
 
