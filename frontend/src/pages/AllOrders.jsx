@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../components/Loader/Loader";
 
+const BASE_URL=import.meta.env.MODE==="development" ? "http://localhost:1000/api/v1":"/api/v1";
+
 const AllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,7 +19,7 @@ useEffect(() => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "https://online-bookstore-0uv6.onrender.com/api/v1/all-orders",
+        `${BASE_URL}/all-orders`,
         { headers }
       );
 
@@ -45,7 +47,7 @@ useEffect(() => {
   const updateOrderStatus = async (orderId, newStatus) => {
     try {
       const response = await axios.put(
-        `http://localhost:1000/api/v1/update-order/${orderId}`,
+        `${BASE_URL}/update-order/${orderId}`,
         { status: newStatus },
         { headers }
       );
