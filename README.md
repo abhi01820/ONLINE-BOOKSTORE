@@ -38,6 +38,4 @@ A full-stack MERN application where users can browse books, view descriptions, a
 
 ---
 
-## 🗂 Project Structure
 
-### 📦 `frontend/`
