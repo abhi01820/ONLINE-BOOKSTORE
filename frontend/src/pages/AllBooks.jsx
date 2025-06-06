@@ -3,6 +3,8 @@ import axios from "axios";
 import Loader from "../components/Loader/Loader";
 import BookCard from "../components/BookCard/BookCard";
 
+const BASE_URL=import.meta.env.MODE==="development" ? "http://localhost:1000/api/v1":"/api/v1";
+
 const AllBooks = () => {
   const [Data, setData] = useState();
 
@@ -10,7 +12,7 @@ const AllBooks = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:1000/api/v1/get-all-books"
+          `${BASE_URL}/get-all-books`
         );
         setData(response.data.data);
       } catch (error) {
