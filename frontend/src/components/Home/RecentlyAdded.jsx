@@ -3,6 +3,8 @@ import axios from "axios";
 import BookCard from "./../BookCard/BookCard";
 import Loader from "../Loader/Loader";
 
+const BASE_URL=import.meta.env.MODE==="development" ? "http://localhost:1000/api/v1":"/api/v1";
+
 const RecentlyAdded = () => {
   const [Data, setData] = useState();
 
@@ -10,7 +12,7 @@ const RecentlyAdded = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:1000/api/v1/get-recent-books"
+          `${BASE_URL}/get-recent-books`
         );
         setData(response.data.data);
       } catch (error) {
