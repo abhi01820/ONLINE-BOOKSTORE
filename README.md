@@ -6,8 +6,9 @@ A full-stack MERN application where users can browse books, view descriptions, a
 
 ## 🚀 Live Demo
 
-> 🌐 [Deployed Link  ](https://online-bookstore-vblc.onrender.com/)  
-
+> 🌐 [Deployed Link  ](https://online-bookstore-vblc.onrender.com/)
+>
+> 
 ---
 
 ## 📌 Features
