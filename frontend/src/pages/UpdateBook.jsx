@@ -4,6 +4,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const BASE_URL=import.meta.env.MODE==="development" ? "http://localhost:1000/api/v1":"/api/v1";
+
+
 const UpdateBook = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -28,7 +31,7 @@ const UpdateBook = () => {
     const fetchBook = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:1000/api/v1/get-book-by-id/${id}`
+          `${BASE_URL}/get-book-by-id/${id}`
         );
         setData(response.data.data);
       } catch (error) {
@@ -51,7 +54,7 @@ const UpdateBook = () => {
 
     setLoading(true);
     try {
-      await axios.put(`http://localhost:1000/api/v1/update-book/${id}`, Data, {
+      await axios.put(`${BASE_URL}/update-book/${id}`, Data, {
         headers,
       });
       toast.success("Book updated successfully!");
