@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 
+const BASE_URL=import.meta.env.MODE==="development" ? "http://localhost:1000/api/v1":"/api/v1";
+
 const ViewBookDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ const ViewBookDetails = () => {
     const fetchBook = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:1000/api/v1/get-book-by-id/${id}`
+          `${BASE_URL}/get-book-by-id/${id}`
         );
         setData(response.data.data);
       } catch (error) {
@@ -43,7 +45,7 @@ const ViewBookDetails = () => {
   };
   const handleFavourite = async () => {
     const response = await axios.put(
-      "http://localhost:1000/api/v1/add-book-to-favourite",
+      `${BASE_URL}/add-book-to-favourite`,
       {},
       { headers }
     );
@@ -51,7 +53,7 @@ const ViewBookDetails = () => {
   };
   const handleCart = async () => {
     const response = await axios.put(
-      "http://localhost:1000/api/v1/add-to-cart",
+      `${BASE_URL}/add-to-cart`,
       {},
       { headers }
     );
@@ -60,7 +62,7 @@ const ViewBookDetails = () => {
   const deleteBook = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:1000/api/v1/delete-book/${id}`,
+        `${BASE_URL}/delete-book/${id}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("token")}`,
