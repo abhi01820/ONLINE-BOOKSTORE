@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const BASE_URL=import.meta.env.MODE==="development" ? "http://localhost:1000/api/v1":"/api/v1";
 const AddBook = () => {
   const [Data, setData] = useState({
     url: "",
@@ -28,7 +29,7 @@ const AddBook = () => {
     }
   
     try {
-      const response = await axios.post("http://localhost:1000/api/v1/add-book", Data, { headers });
+      const response = await axios.post(`${BASE_URL}/add-book`, Data, { headers });
       setData({
         url: "",
         title: "",
