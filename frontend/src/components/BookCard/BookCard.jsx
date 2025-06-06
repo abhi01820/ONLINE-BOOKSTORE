@@ -1,6 +1,9 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
+const BASE_URL=import.meta.env.MODE==="development" ? "http://localhost:1000/api/v1":"/api/v1";
+
 const BookCard = ({ data, Favourite, setFavouriteBooks, FavouriteBooks }) => {
   const headers = {
     id: localStorage.getItem("id"),
@@ -11,7 +14,7 @@ const BookCard = ({ data, Favourite, setFavouriteBooks, FavouriteBooks }) => {
   const handleRemoveBook = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:1000/api/v1/remove-book-from-favourite",
+        `${BASE_URL}/remove-book-from-favourite`,
         {},
         { headers }
       );
