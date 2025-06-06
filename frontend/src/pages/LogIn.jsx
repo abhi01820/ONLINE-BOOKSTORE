@@ -4,6 +4,8 @@ import axios from "axios";
 import { authActions } from './../store/auth';
 import {useDispatch} from "react-redux";
 
+const BASE_URL=import.meta.env.MODE==="development" ? "http://localhost:1000/api/v1":"/api/v1";
+
 
 const Login = () => {
   const [Values, setValues] = useState({
@@ -28,7 +30,7 @@ const Login = () => {
         alert("All Fields are required ");
       } else {
         const response = await axios.post(
-          "http://localhost:1000/api/v1/signIn",
+          `${BASE_URL}/signIn`,
           Values
         );
         dispatch(authActions.login());
