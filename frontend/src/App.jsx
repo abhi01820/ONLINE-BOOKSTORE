@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import AllBooks from "./pages/AllBooks"; 
 import Login from "./pages/LogIn";
-import Signup from "./pages/Signup";
+import Signup from "./pages/SignUp";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import ViewBookDetails from "./components/ViewBookDetails/ViewBookDetails";
