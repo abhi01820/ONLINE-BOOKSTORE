@@ -81,8 +81,8 @@ const ViewBookDetails = () => {
   const handleUpdateBook = async (updatedData) => {
     try {
       const response = await axios.put(
-        `http://localhost:1000/api/v1/update-book/${id}`, // ✅ Pass ID in URL
-        updatedData, // ✅ Send updated data in body
+        `${BASE_URL}/update-book/${id}`,
+        updatedData, 
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("token")}`, // ✅ Include auth token
